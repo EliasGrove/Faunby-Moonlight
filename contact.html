@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Faun by Moonlight</title>
+    <meta name="description" content="Contact Faun by Moonlight literary magazine for general inquiries, business matters, or questions. For submissions, please visit our submissions page.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IM Fell English", serif;
+            background-color: #000000;
+            color: #f8f8f8;
+            min-height: 100vh;
+            background-image: url('contact form.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dark overlay for the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Main content wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Frosted text container */
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 3.5rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #e8e8e8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+        }
+
+        .x-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .x-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .x-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1rem;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .form-input, .form-textarea {
+            font-family: "IM Fell English", serif;
+            font-size: 1rem;
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            color: #ffffff;
+            padding: 12px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .disclaimer {
+            background: rgba(139, 69, 19, 0.3);
+            border-left: 4px solid rgba(210, 180, 140, 0.6);
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 1rem;
+            color: #e8e8e8;
+        }
+
+        .disclaimer .emphasis {
+            color: #ffd700;
+            font-style: italic;
+        }
+
+        .disclaimer a {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0,0,0,0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .copyright {
+            font-family: "IM Fell English", serif;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-tab {
+                font-size: 1rem;
+                padding: 10px 16px;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .intro-text {
+                font-size: 1.1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .social-section {
+                padding: 1.2rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                gap: 15px;
+            }
+            
+            .footer-link {
+                font-size: 1.1rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .nav-tab {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .social-section {
+                padding: 1rem;
+            }
+
+            .x-link {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo">Faun by Moonlight</a>
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab">FAQ</a>
+            <a href="/support-us" class="nav-tab">Support Us</a>
+            <a href="/contact" class="nav-tab active">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Contact</h1>
+            
+            <p class="intro-text">
+                For general inquiries, business matters, or questions about Faun by Moonlight, please reach out to us using the form below.
+            </p>
+
+            <section class="social-section">
+                <a href="https://x.com/faunbymoonlight" target="_blank" rel="noopener noreferrer" class="x-link" aria-label="Follow Faun by Moonlight on X">
+                    <svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @faunbymoonlight
+                </a>
+            </section>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="40095b04-f218-4f3a-8532-5fbec80bee19">
+                <input type="hidden" name="subject" value="Contact Form - Faun by Moonlight">
+                
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiry-type" class="form-label">Inquiry Type</label>
+                    <select id="inquiry-type" name="inquiry_type" class="form-input" required>
+                        <option value="">Select inquiry type</option>
+                        <option value="general">General Question</option>
+                        <option value="business">Business Inquiry</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="press">Press & Media</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Please share your inquiry or message..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+
+            <div class="disclaimer">
+                <p><span class="emphasis">Please note:</span> This form is for general inquiries and business matters only. For manuscript submissions, please visit our <a href="/submissions">Submissions</a> page for proper submission guidelines and email address.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
