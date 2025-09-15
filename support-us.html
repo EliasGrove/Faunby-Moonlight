@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us - Faun by Moonlight</title>
+    <meta name="description" content="Support Faun by Moonlight literary magazine. We are a free-first publication run by volunteers. Support us through volunteering, purchasing annual collections, or buying us a coffee.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IM Fell English", serif;
+            background-color: #000000;
+            color: #f8f8f8;
+            min-height: 100vh;
+            background-image: url('Support Us.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dark overlay for the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Main content wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Frosted text container */
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 3.5rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 1.8rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .section-content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #e8e8e8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-align: justify;
+        }
+
+        .section-content p {
+            margin-bottom: 0.8rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .emphasis {
+            font-style: italic;
+            color: #f0f0f0;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Introduction section styling */
+        .intro-section {
+            border-left: 4px solid rgba(255, 215, 0, 0.6);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Support option styling */
+        .support-option {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .support-option:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .support-option .section-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Coffee link styling */
+        .coffee-link {
+            color: #ffd700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-link:hover {
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Section dividers for better organization */
+        .section-divider {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .copyright {
+            font-family: "IM Fell English", serif;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-tab {
+                font-size: 1rem;
+                padding: 10px 16px;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-content {
+                font-size: 1.1rem;
+                text-align: left;
+            }
+
+            .section {
+                margin-bottom: 1.5rem;
+            }
+
+            .section-divider {
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .support-option {
+                padding: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .support-option .section-title {
+                font-size: 1.2rem;
+            }
+
+            .intro-section {
+                margin-bottom: 2rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                gap: 15px;
+            }
+            
+            .footer-link {
+                font-size: 1.1rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .section-content {
+                font-size: 1rem;
+            }
+
+            .nav-tab {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .section {
+                margin-bottom: 1.2rem;
+            }
+
+            .section-divider {
+                padding-bottom: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .support-option {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .support-option .section-title {
+                font-size: 1.1rem;
+            }
+
+            .intro-section {
+                margin-bottom: 1.5rem;
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo">Faun by Moonlight</a>
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab">FAQ</a>
+            <a href="/support-us" class="nav-tab active">Support Us</a>
+            <a href="/contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Support Us</h1>
+            
+            <section class="section intro-section">
+                <div class="section-content">
+                    <p>Faun by Moonlight operates as a free-first publication. Our monthly issues, submissions process, editorial work, and reading access cost nothing. This approach reflects our belief that quality literary fiction should remain accessible.</p>
+                    <p>Our publication runs on volunteer effort from individuals committed to finding and showcasing great literature. We maintain our standards through this collective dedication.</p>
+                </div>
+            </section>
+
+            <section class="section section-divider">
+                <h2 class="section-title">Ways to Support Our Work</h2>
+                
+                <div class="support-option">
+                    <h3 class="section-title">Volunteer</h3>
+                    <div class="section-content">
+                        <p>Whether it's editorial work, website development, marketing, beta reading, or other publication tasks, we can always use another helping hand. If you have relevant skills or interest, we welcome your help. Feel free to reach out to us through our contact page.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Purchase Annual Collections</h3>
+                    <div class="section-content">
+                        <p>Every year we compile our strongest works into a curated yearly issue. These collections will include exclusive content, artwork, opinion pieces and more, providing a way to support the publication and the authors directly.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Buy Us a Coffee</h3>
+                    <div class="section-content">
+                        <p>If you'd like to fuel our late-night editing sessions, our <a href="https://buymeacoffee.com/faunbymoonlight" class="coffee-link" target="_blank" rel="noopener">Buy Me a Coffee page</a> helps keep us caffeinated. But don't feel obligated..</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Share Our Content</h3>
+                    <div class="section-content">
+                        <p>Recommend stories to other readers, engage with our social media posts, direct writers to our submission guidelines, or discuss our published work. Organic promotion through readers remains essential for literary publications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-content">
+                    <p>Your readership itself constitutes support. Each person who engages seriously with the work we publish advances our central purpose: bringing you great literature.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
