@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Faun by Moonlight</title>
+    <meta name="description" content="Frequently asked questions about submitting to Faun by Moonlight literary magazine. Learn about our submission process, payment, response times, and publishing rights.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "IM Fell English", serif;
+            background-color: #000000;
+            color: #f8f8f8;
+            min-height: 100vh;
+            background-image: url('faq-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dark overlay for the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Main content wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Frosted text container */
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 3.5rem;
+            font-weight: normal;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .faq-section {
+            margin-bottom: 2rem;
+        }
+
+        .faq-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .faq-answer {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: #e8e8e8;
+        }
+
+        .faq-answer:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .copyright {
+            font-family: "IM Fell English", serif;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-tab {
+                font-size: 1rem;
+                padding: 10px 16px;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .faq-answer {
+                font-size: 1.1rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .footer-links {
+                gap: 15px;
+            }
+            
+            .footer-link {
+                font-size: 1.1rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .faq-answer {
+                font-size: 1rem;
+            }
+
+            .nav-tab {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo">Faun by Moonlight</a>
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab active">FAQ</a>
+            <a href="/support-us" class="nav-tab">Support Us</a>
+            <a href="/contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+
+            <section class="faq-section">
+                <h2 class="section-title">What is Faun by Moonlight?</h2>
+                <p class="faq-answer">Faun by Moonlight is a literary magazine dedicated to publishing literary fiction that explores the complexities of human experience through sophisticated prose and thematic depth.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">What are you looking for?</h2>
+                <p class="faq-answer">We seek works that prioritize artistic merit, complex characterization, and emotional resonance. Our focus is on stories that trust the intelligence of their readers and defy easy categorization.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">What is literary fiction?</h2>
+                <p class="faq-answer">Literary fiction emphasizes psychological depth and thematic complexity through character-driven narratives. As critic James Wood notes, it concerns "the how of human experience rather than the what."</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Will you consider other kinds of work?</h2>
+                <p class="faq-answer">Currently, we focus exclusively on literary fiction. While your work may contain elements of romance, horror, or fantasy, these should not be the principal focus. We believe there is already a wide market for such genres, and our mission is to support literary fiction specifically.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Do you accept unagented submissions?</h2>
+                <p class="faq-answer">Yes, we prefer unagented submissions. We are committed to discovering and nurturing new voices directly, without traditional publishing gatekeepers.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Do you pay contributors?</h2>
+                <p class="faq-answer">At this stage, we are unable to offer payment for individual submissions. However, we provide quick response times to help writers build their portfolios efficiently. We plan to publish an annual anthology of the best stories, with compensation for contributing authors based on sales.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">What is your submission schedule?</h2>
+                <p class="faq-answer">We accept submissions throughout the year. There are no fixed reading periods or submission windows—please submit your work at any time.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">How quickly do you respond to submissions?</h2>
+                <p class="faq-answer">We aim to respond to all submissions within two weeks. We understand that waiting can be challenging, so we prioritize timely and thoughtful feedback.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Do I have to pay to submit my work?</h2>
+                <p class="faq-answer">No. There is no fee to submit your work to Faun by Moonlight, nor is there any cost for publication.</p>
+            </section>
+            
+            <section class="faq-section">
+                <h2 class="section-title">Do you accept simultaneous submissions?</h2>
+                <p class="faq-answer">Yes, we accept simultaneous submissions. We only ask that if your story is accepted elsewhere, please notify us immediately by email so we can withdraw it from consideration.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">What rights do you acquire when you publish my story?</h2>
+                <p class="faq-answer">We acquire first serial rights only, meaning we have the right to publish your story for the first time in our magazine. After publication, we retain non-exclusive archival rights to keep your story accessible in our digital archives and back issues. All other rights remain with you, and you're free to republish your work elsewhere after our exclusive period ends.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">How long is your exclusive period?</h2>
+                <p class="faq-answer">We request a three-month exclusive period following publication. During this time, your story cannot be republished elsewhere. After three months, you may submit or republish your work anywhere while we maintain our non-exclusive archival rights.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">What about your planned annual anthology?</h2>
+                <p class="faq-answer">Publication in Faun by Moonlight does not automatically include your story in our annual anthology. If we wish to include your work in the anthology, we will contact you separately to discuss terms and compensation. You are free to decline anthology inclusion without any impact on your original publication with us.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">How does anthology compensation work?</h2>
+                <p class="faq-answer">Authors whose stories are selected for our annual anthology will receive compensation based on a percentage of net sales. Specific terms will be negotiated individually when we approach authors for anthology inclusion. This is separate from and in addition to the exposure from magazine publication.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Can I republish my story if it appears in your anthology?</h2>
+                <p class="faq-answer">Yes. Anthology inclusion involves non-exclusive rights, meaning you retain the ability to republish your work elsewhere. We simply ask that you acknowledge prior publication in Faun by Moonlight and our anthology in your submission credits.</p>
+            </section>
+
+            <section class="faq-section">
+                <h2 class="section-title">Do I need an agent to submit or handle these agreements?</h2>
+                <p class="faq-answer">No agent is required. Our agreements are straightforward and author-friendly. However, you're welcome to have legal counsel review any contracts if you prefer.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
