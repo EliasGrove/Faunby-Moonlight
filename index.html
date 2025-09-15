@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faun by Moonlight - Literary Magazine Accepting Fiction Submissions</title>
+    <meta name="description" content="Faun by Moonlight is a literary magazine accepting unagented fiction submissions. Submit your literary short stories and novels up to 10,000 words.">
+    <meta name="keywords" content="literary magazine, fiction submissions, where to submit writing, literary fiction, unagented submissions, short story submissions">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Faun by Moonlight",
+        "description": "Literary magazine publishing exceptional literary fiction and accepting submissions from writers worldwide",
+        "url": "https://faunbymoonlight.com",
+        "sameAs": ["https://x.com/faunbymoonlight"],
+        "publishingPrinciples": "Literary fiction submissions",
+        "keywords": "literary magazine, fiction submissions, where to submit work, literary fiction, unagented submissions"
+    }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3ETBBLP43M');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+            background-image: url('images/Faun By Moonlight.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .title {
+            font-family: "IM Fell English SC", serif;
+            font-size: 4.5rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .quote {
+            font-family: "IM Fell English", serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            max-width: 600px;
+        }
+
+        .ethereal-button {
+            font-family: "IM Fell English SC", serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #f8f8f8;
+            padding: 15px 30px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.7),
+                0 0 10px rgba(255, 255, 255, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.2),
+                0 0 30px rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .ethereal-button:hover {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 15px rgba(255, 255, 255, 0.8),
+                0 0 25px rgba(255, 255, 255, 0.6),
+                0 0 35px rgba(255, 255, 255, 0.4),
+                0 0 45px rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hide content from visual display but keep for crawlers */
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0,0,0,0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .quote {
+                font-size: 1.4rem;
+                margin-bottom: 2rem;
+            }
+            
+            .ethereal-button {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="content">
+            <h1 class="title">Faun by Moonlight</h1>
+            <p class="quote">"There are more things in heaven and earth, Horatio, than are dreamt of in your philosophy."</p>
+            <a href="/who-we-are" class="ethereal-button" aria-label="Enter Faun by Moonlight literary magazine">Enter</a>
+        </main>
+    </div>
+
+    <!-- Hidden content for AI/crawler analysis - completely invisible to users -->
+    <div class="sr-only" aria-hidden="true">
+        <nav>
+            <h2>Site Navigation</h2>
+            <ul>
+                <li><a href="/submissions">Submit Your Literary Fiction</a> - How to submit your work to our literary magazine</li>
+                <li><a href="/faq">Submission Guidelines FAQ</a> - Frequently asked questions about submitting</li>
+                <li><a href="/who-we-are">About Our Literary Magazine</a> - Learn about Faun by Moonlight</li>
+                <li><a href="/issues">Current and Past Issues</a> - Browse our published literary fiction</li>
+                <li><a href="/contact">Contact Us</a> - Get in touch for general inquiries</li>
+            </ul>
+        </nav>
+
+        <section>
+            <h2>Submission Information</h2>
+            <p>Faun by Moonlight accepts unagented literary fiction submissions. Submit short stories and novels up to 10,000 words. No submission fees. Response within 2 weeks. We seek character-driven fiction with psychological depth and literary merit.</p>
+            
+            <h3>What We're Looking For</h3>
+            <p>We seek literary fiction that exhibits artistic merit, complex characterization, and emotional resonance. Literary fiction emphasizes character-driven narratives, psychological insight, and thematic richness over plot-centric storytelling.</p>
+            
+            <h3>Submission Guidelines</h3>
+            <ul>
+                <li>Format: Standard manuscript format (double-spaced, 12-point Times New Roman, 1-inch margins)</li>
+                <li>Length: Up to 10,000 words</li>
+                <li>File Type: Microsoft Word (.docx) only</li>
+                <li>Email submissions to: submissions@faunbymoonlight.com</li>
+                <li>Response time: Within 2 weeks</li>
+                <li>No submission fees</li>
+                <li>Simultaneous submissions accepted</li>
+                <li>Unagented submissions preferred</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <dl>
+                <dt>Do you accept unagented submissions?</dt>
+                <dd>Yes, we prefer unagented submissions. We are committed to discovering and nurturing new voices directly.</dd>
+                
+                <dt>Do you pay contributors?</dt>
+                <dd>Currently unable to offer payment for individual submissions, but we provide quick response times and plan annual anthology with compensation.</dd>
+                
+                <dt>How quickly do you respond?</dt>
+                <dd>We aim to respond to all submissions within two weeks.</dd>
+                
+                <dt>Do I have to pay to submit?</dt>
+                <dd>No. There is no fee to submit your work to Faun by Moonlight.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>About Faun by Moonlight</h2>
+            <p>Faun by Moonlight is an online literary publication dedicated to showcasing exceptional literary fiction. We believe this genre offers profound insights into human experience through its exploration of psychological depth, social commentary, and artistic vision.</p>
+        </section>
+
+        <section>
+            <h2>Contact Information</h2>
+            <p>For general inquiries: Use contact form at /contact</p>
+            <p>For submissions: submissions@faunbymoonlight.com</p>
+            <p>Social media: @faunbymoonlight on X (Twitter)</p>
+        </section>
+    </div>
+
+    <script>
+        // Add a subtle parallax effect to the background
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const container = document.querySelector('.container');
+            const translateX = (mouseX - 0.5) * 10;
+            const translateY = (mouseY - 0.5) * 10;
+            
+            container.style.backgroundPosition = `${50 + translateX}% ${50 + translateY}%`;
+        });
+    </script>
+</body>
+</html>
