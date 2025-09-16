@@ -1,6 +1,6 @@
 :root {
     --primary-font: "IM Fell English", serif;
-    --body-font: "Lora", serif;
+    --body-font: "IM Fell English", serif; /* Reverted to original font */
     --title-font: "IM Fell English SC", serif;
     --background-color: #1a1a1a;
     --text-color: #f8f8f8;
@@ -152,9 +152,9 @@ body::before {
 }
 
 .content-text {
-    font-size: 1.1rem; /* Adjusted for better readability with Lora */
+    font-size: 1.3rem; /* Reverted to original font size */
     line-height: 1.8;
-    text-shadow: 1px 1px 3px var(--shadow-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
     text-align: justify;
 }
 
