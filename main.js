@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        // Add/remove class on body to prevent background scrolling
+        document.body.classList.toggle('menu-open');
     });
 
     // Close menu when a link is clicked
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navLinks.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
             }
         });
     });
