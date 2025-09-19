@@ -65,8 +65,23 @@
             align-items: center;
             text-align: center;
             position: relative;
+            /* Enhanced background animation */
+            animation: breathe 20s ease-in-out infinite;
         }
 
+        /* Subtle breathing/scaling animation */
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1) saturate(1);
+            }
+            50% { 
+                transform: scale(1.02);
+                filter: brightness(1.05) saturate(1.1);
+            }
+        }
+
+        /* Animated overlay for atmospheric effect */
         .container::before {
             content: '';
             position: absolute;
@@ -74,8 +89,71 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                rgba(0, 0, 0, 0.3);
             z-index: 1;
+            animation: shimmer 25s ease-in-out infinite;
+        }
+
+        /* Subtle light shimmer animation */
+        @keyframes shimmer {
+            0%, 100% { 
+                opacity: 1;
+            }
+            33% { 
+                opacity: 0.8;
+            }
+            66% { 
+                opacity: 0.9;
+            }
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s linear infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: rgba(173, 216, 230, 0.4);
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(3n) {
+            background: rgba(255, 255, 255, 0.3);
+            animation-duration: 25s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .content {
@@ -85,6 +163,17 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             max-width: 800px;
             padding: 0 20px;
+            /* Subtle float animation for content */
+            animation: contentFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes contentFloat {
+            0%, 100% { 
+                transform: translateY(0px);
+            }
+            50% { 
+                transform: translateY(-5px);
+            }
         }
 
         .title {
@@ -93,7 +182,25 @@
             font-weight: normal;
             margin-bottom: 2rem;
             letter-spacing: 2px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.3);
+            /* Subtle glow animation */
+            animation: titleGlow 12s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.8),
+                    0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                text-shadow: 
+                    3px 3px 6px rgba(0, 0, 0, 0.8),
+                    0 0 30px rgba(255, 255, 255, 0.5),
+                    0 0 40px rgba(173, 216, 230, 0.3);
+            }
         }
 
         .quote {
@@ -165,6 +272,20 @@
                 font-size: 1rem;
                 padding: 12px 24px;
             }
+
+            /* Reduce animation intensity on mobile */
+            .container {
+                animation: breathe 30s ease-in-out infinite;
+            }
+            
+            @keyframes breathe {
+                0%, 100% { 
+                    transform: scale(1);
+                }
+                50% { 
+                    transform: scale(1.01);
+                }
+            }
         }
 
         @media (max-width: 480px) {
@@ -176,10 +297,27 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            .container,
+            .content,
+            .title,
+            .particle {
+                animation: none !important;
+            }
+            
+            .container::before {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Floating particles -->
+        <div class="particles" id="particles"></div>
+        
         <main class="content">
             <h1 class="title">Faun by Moonlight</h1>
             <p class="quote">"There are more things in heaven and earth, Horatio, than are dreamt of in your philosophy."</p>
@@ -249,16 +387,54 @@
     </div>
 
     <script>
-        // Add a subtle parallax effect to the background
+        // Enhanced parallax effect
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
             
             const container = document.querySelector('.container');
-            const translateX = (mouseX - 0.5) * 10;
-            const translateY = (mouseY - 0.5) * 10;
+            const translateX = (mouseX - 0.5) * 15;
+            const translateY = (mouseY - 0.5) * 15;
             
             container.style.backgroundPosition = `${50 + translateX}% ${50 + translateY}%`;
+        });
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 8 : 15; // Fewer particles on mobile
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size (1-4px)
+                const size = Math.random() * 3 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random starting position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+
+        // Recreate particles on resize to adjust count
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const particlesContainer = document.getElementById('particles');
+                particlesContainer.innerHTML = '';
+                createParticles();
+            }, 250);
         });
     </script>
 </body>
