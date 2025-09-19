@@ -32,23 +32,6 @@
             flex-direction: column;
         }
 
-        /* Background video */
-        #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        #bg-video.fade-in {
-            opacity: 1;
-        }
-
         /* Dark overlay for the background */
         body::before {
             content: '';
@@ -299,12 +282,6 @@
     </style>
 </head>
 <body>
-    <!-- Background video -->
-    <video id="bg-video" muted loop preload="auto">
-        <source src="images/when-the-moon.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
     <nav class="nav-header">
         <a href="/" class="logo">Faun by Moonlight</a>
         <div class="nav-tabs">
@@ -342,25 +319,5 @@
             © 2025 Faun by Moonlight. All rights reserved.
         </div>
     </footer>
-
-    <script>
-        // Wait for the page to load
-        window.addEventListener('load', () => {
-            const video = document.getElementById('bg-video');
-            
-            // Set video to play in slow motion (0.5 = half speed)
-            video.playbackRate = 0.5;
-            
-            // Start video after 10 seconds with fade-in effect
-            setTimeout(() => {
-                video.play().then(() => {
-                    video.classList.add('fade-in');
-                }).catch(err => {
-                    console.log('Video autoplay failed:', err);
-                    // Fallback: still show the static background image
-                });
-            }, 10000); // 10 seconds delay
-        });
-    </script>
 </body>
 </html>
