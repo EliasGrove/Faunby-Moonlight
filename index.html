@@ -126,20 +126,42 @@
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
             pointer-events: none;
-            animation: float 15s linear infinite;
+            animation: float 15s linear infinite, shimmerParticle 3s ease-in-out infinite;
             box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
         }
 
         .particle:nth-child(odd) {
             background: rgba(173, 216, 230, 0.7);
-            animation-duration: 20s;
+            animation: float 20s linear infinite, shimmerParticle 2.5s ease-in-out infinite;
+            animation-delay: 0s, 1s;
             box-shadow: 0 0 8px rgba(173, 216, 230, 0.5);
         }
 
         .particle:nth-child(3n) {
             background: rgba(255, 255, 255, 0.6);
-            animation-duration: 25s;
+            animation: float 25s linear infinite, shimmerParticle 4s ease-in-out infinite;
+            animation-delay: 0s, 2s;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Moonlight shimmer animation for particles */
+        @keyframes shimmerParticle {
+            0%, 100% {
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+            }
+            25% {
+                background: rgba(200, 200, 200, 0.6);
+                box-shadow: 0 0 4px rgba(200, 200, 200, 0.4);
+            }
+            50% {
+                background: rgba(160, 160, 160, 0.5);
+                box-shadow: 0 0 3px rgba(160, 160, 160, 0.3);
+            }
+            75% {
+                background: rgba(220, 220, 220, 0.7);
+                box-shadow: 0 0 5px rgba(220, 220, 220, 0.5);
+            }
         }
 
         @keyframes float {
@@ -164,7 +186,8 @@
             z-index: 2;
             color: #f8f8f8;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            max-width: 800px;
+            max-width: 1200px;
+            width: 90%;
             padding: 0 20px;
             /* Subtle float animation for content */
             animation: contentFloat 8s ease-in-out infinite;
@@ -181,10 +204,10 @@
 
         .title {
             font-family: "IM Fell English SC", serif;
-            font-size: 4.5rem;
+            font-size: 6rem;
             font-weight: normal;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            letter-spacing: 3px;
             text-shadow: 
                 3px 3px 6px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(255, 255, 255, 0.3);
@@ -208,22 +231,22 @@
 
         .quote {
             font-family: "IM Fell English", serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-style: italic;
             line-height: 1.6;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            max-width: 600px;
+            max-width: 900px;
         }
 
         .ethereal-button {
             font-family: "IM Fell English SC", serif;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
             background: none;
             border: none;
             color: #f8f8f8;
-            padding: 15px 30px;
+            padding: 20px 40px;
             cursor: pointer;
             position: relative;
             transition: all 0.3s ease;
@@ -262,18 +285,19 @@
 
         @media (max-width: 768px) {
             .title {
-                font-size: 3rem;
-                margin-bottom: 1.5rem;
+                font-size: 4rem;
+                margin-bottom: 2rem;
+                letter-spacing: 2px;
             }
             
             .quote {
-                font-size: 1.4rem;
-                margin-bottom: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 2.5rem;
             }
             
             .ethereal-button {
-                font-size: 1rem;
-                padding: 12px 24px;
+                font-size: 1.3rem;
+                padding: 16px 32px;
             }
 
             /* Reduce animation intensity on mobile */
@@ -293,11 +317,17 @@
 
         @media (max-width: 480px) {
             .title {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
+                letter-spacing: 1px;
             }
             
             .quote {
+                font-size: 1.5rem;
+            }
+            
+            .ethereal-button {
                 font-size: 1.2rem;
+                padding: 14px 28px;
             }
         }
 
