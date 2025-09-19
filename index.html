@@ -123,20 +123,23 @@
 
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
             pointer-events: none;
             animation: float 15s linear infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
         }
 
         .particle:nth-child(odd) {
-            background: rgba(173, 216, 230, 0.4);
+            background: rgba(173, 216, 230, 0.7);
             animation-duration: 20s;
+            box-shadow: 0 0 8px rgba(173, 216, 230, 0.5);
         }
 
         .particle:nth-child(3n) {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.6);
             animation-duration: 25s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
         }
 
         @keyframes float {
@@ -387,29 +390,17 @@
     </div>
 
     <script>
-        // Enhanced parallax effect
-        window.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            const container = document.querySelector('.container');
-            const translateX = (mouseX - 0.5) * 15;
-            const translateY = (mouseY - 0.5) * 15;
-            
-            container.style.backgroundPosition = `${50 + translateX}% ${50 + translateY}%`;
-        });
-
         // Create floating particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 768 ? 8 : 15; // Fewer particles on mobile
+            const particleCount = window.innerWidth < 768 ? 12 : 20; // More particles overall
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
-                // Random size (1-4px)
-                const size = Math.random() * 3 + 1;
+                // Slightly larger size range (2-6px)
+                const size = Math.random() * 4 + 2;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 
