@@ -44,6 +44,104 @@
             z-index: 1;
         }
 
+        /* Animated eyes for the character in bottom right */
+        .character-eyes {
+            position: fixed;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Left eye of character */
+        .left-eye {
+            position: absolute;
+            width: 6px;
+            height: 3px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 50%;
+            bottom: 25vh;
+            right: 12vw;
+            animation: 
+                irregularBlink 8s infinite,
+                subtleEyeMove 12s ease-in-out infinite;
+            animation-delay: 0s, 2s;
+        }
+
+        /* Right eye of character */
+        .right-eye {
+            position: absolute;
+            width: 6px;
+            height: 3px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 50%;
+            bottom: 25vh;
+            right: 10vw;
+            animation: 
+                irregularBlink 8s infinite,
+                subtleEyeMove 12s ease-in-out infinite;
+            animation-delay: 0.1s, 3s;
+        }
+
+        /* Irregular blinking animation */
+        @keyframes irregularBlink {
+            0%, 15%, 17%, 45%, 47%, 85%, 87%, 100% {
+                transform: scaleY(1);
+                opacity: 0.8;
+            }
+            16%, 46%, 86% {
+                transform: scaleY(0.1);
+                opacity: 1;
+            }
+        }
+
+        /* Subtle eye movement */
+        @keyframes subtleEyeMove {
+            0%, 100% { 
+                transform: translate(0, 0);
+            }
+            20% { 
+                transform: translate(-1px, 0);
+            }
+            40% { 
+                transform: translate(1px, -0.5px);
+            }
+            60% { 
+                transform: translate(0, 0.5px);
+            }
+            80% { 
+                transform: translate(-0.5px, 0);
+            }
+        }
+
+        /* Eye glow effect for extra eeriness */
+        .eye-glow {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, rgba(40, 40, 40, 0.3), transparent);
+            border-radius: 50%;
+            bottom: 24.8vh;
+            animation: glowPulse 6s ease-in-out infinite;
+        }
+
+        .glow-left {
+            right: 11.8vw;
+        }
+
+        .glow-right {
+            right: 9.8vw;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.4;
+                transform: scale(1.1);
+            }
+        }
+
         /* Navigation */
         .nav-header {
             position: relative;
@@ -200,6 +298,35 @@
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
+            /* Adjust eye positions for mobile */
+            .left-eye {
+                bottom: 22vh;
+                right: 15vw;
+                width: 4px;
+                height: 2px;
+            }
+
+            .right-eye {
+                bottom: 22vh;
+                right: 12vw;
+                width: 4px;
+                height: 2px;
+            }
+
+            .eye-glow {
+                width: 6px;
+                height: 6px;
+                bottom: 21.8vh;
+            }
+
+            .glow-left {
+                right: 14.8vw;
+            }
+
+            .glow-right {
+                right: 11.8vw;
+            }
+
             .nav-header {
                 flex-direction: column;
                 gap: 20px;
@@ -257,6 +384,29 @@
         }
 
         @media (max-width: 480px) {
+            /* Further adjust for very small screens */
+            .left-eye {
+                bottom: 20vh;
+                right: 18vw;
+            }
+
+            .right-eye {
+                bottom: 20vh;
+                right: 14vw;
+            }
+
+            .eye-glow {
+                bottom: 19.8vh;
+            }
+
+            .glow-left {
+                right: 17.8vw;
+            }
+
+            .glow-right {
+                right: 13.8vw;
+            }
+
             .logo {
                 font-size: 1.4rem;
             }
@@ -279,9 +429,26 @@
                 padding: 8px 12px;
             }
         }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .left-eye,
+            .right-eye,
+            .eye-glow {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Animated eyes overlay -->
+    <div class="character-eyes">
+        <div class="eye-glow glow-left"></div>
+        <div class="eye-glow glow-right"></div>
+        <div class="left-eye"></div>
+        <div class="right-eye"></div>
+    </div>
+
     <nav class="nav-header">
         <a href="/" class="logo">Faun by Moonlight</a>
         <div class="nav-tabs">
