@@ -30,6 +30,16 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            animation: floatingBackground 6s ease-in-out infinite;
+        }
+
+        @keyframes floatingBackground {
+            0%, 100% {
+                background-position: center 0px;
+            }
+            50% {
+                background-position: center -10px;
+            }
         }
 
         /* Dark overlay for the background */
